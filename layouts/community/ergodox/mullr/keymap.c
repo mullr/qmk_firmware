@@ -13,7 +13,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
  　　
  * ,--------------------------------------------------.           ,--------------------------------------------------.
- * |   `    |   1  |   2  |   3  |   4  |   5  |      |           |      |   6  |   7  |   8  |   9  |   0  |   -    |
+ * |   `    |   1  |   2  |   3  |   4  |   5  | MENU |           |      |   6  |   7  |   8  |   9  |   0  |   -    |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
  * | Tab    |   Q  |   W  |   E  |   R  |   T  | SCA  |           |  SCA |   Y  |   U  |   I  |   O  |   P  |   \    |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
@@ -21,40 +21,40 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+------|  CA  |           |  CA  |------+------+------+------+------+--------|
  * | LShift |   Z  |   X  |   C  |   V  |   B  |      |           |      |   N  |   M  |   ,  |   .  |  /   | RShift |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   |  `   |  '   |      |   ←  | GUI,→|                                       | GUI,↑|   ↓  |   [  |   ]  |      |
+ *   |  `   |  '   |      |   ←  | ALT,→|                                       | GUI,↑|   ↓  |   [  |   ]  |      |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
  *                                        | Copy | Paste|       | PgUp | PgDn |
  *                                 ,------|------|------|       |------+------+-----.
  *                                 |      |      |      |       |      |      |     |
- *                                 | SPC  |  BS  |------|       |------| RET  | SPC |
- *                                 |      |      | ALT  |       |  ESC |      |     |
+ *                                 | SPC  |  BS  |------|       |------|  SPC | RET |
+ *                                 |      |      |  CA  |       |  ESC |      |     |
  *                                 `--------------------'       `-------------------'
  */
   [BASE] = LAYOUT_ergodox(  // layer 0 : default
     // left
-    KC_GRV,   KC_1,    KC_2,    KC_3,     KC_4,           KC_5,   KC_NO,
+    KC_GRV,   KC_1,    KC_2,    KC_3,     KC_4,           KC_5,   LGUI(KC_SPC),
     KC_TAB,   KC_Q,    KC_W,    KC_E,     KC_R,           KC_T,   LSFT(LCA(KC_NO)),
     KC_LCTL,  KC_A,    KC_S,    KC_D,     LT(L1, KC_F),   KC_G,
     KC_LSFT,  KC_Z,    KC_X,    KC_C,     KC_V,           KC_B,   LCA(KC_NO),
-    KC_GRV,   KC_QUOT, KC_NO,   KC_LEFT,  GUI_T(KC_RIGHT),
+    KC_GRV,   KC_QUOT, KC_NO,   KC_LEFT,  ALT_T(KC_RIGHT),
 
     // left thumb
              LCTL(KC_C), LSFT(KC_INS),
                          KC_NO,
-    KC_SPC,  KC_BSPC,    KC_LALT,
+    KC_SPC,  KC_BSPC,    LCA(KC_NO),
 
     // right
     KC_NO,            KC_6,         KC_7,         KC_8,    KC_9,    KC_0,    KC_MINS,
     LSFT(LCA(KC_NO)), KC_Y,         KC_U,         KC_I,    KC_O,    KC_P,    KC_BSLS,
                       KC_H,         KC_J,         KC_K,    KC_L,    KC_SCLN, KC_QUOT,
     LCA(KC_NO),       KC_N,         KC_M,         KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
-                                    GUI_T(KC_UP), KC_DOWN, KC_LBRC, KC_RBRC, KC_NO,
+                      GUI_T(KC_UP), KC_DOWN, KC_LBRC, KC_RBRC, KC_NO,
 
     // right thumb
     KC_PGUP, KC_PGDN,
     KC_NO,
-    KC_ESC, KC_ENT, KC_SPC
+    KC_ESC, KC_SPC, KC_ENT
   ),
 
 /* Layer 1
